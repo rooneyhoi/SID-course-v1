@@ -31,3 +31,7 @@ Yêu cầu người học viết ra suy nghĩ của mình, từ đó, tôi sẽ 
 
  ## Kỳ vọng và chỉ ra cho người học:
  > Điều quan trọng nhất của bài tập này ngoài việc "ánh xạ" tư duy là nó hướng người học có tư duy "khám phá". Đó chính là trục "Explore", một phần quan trọng, trong SID (Structured Intelligence Design) Framework
+
+# Bài tập số 2 - khảo sát tư duy
+
+Làm thế nào để một chiếc ô tô tự lại (vận hành bằng AI) có thể hoạt động với đèn giao thông?
