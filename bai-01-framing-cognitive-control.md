@@ -1,15 +1,7 @@
-Dưới đây là:
-
-1) Bản viết lại Buổi 1 (markdown), ưu tiên ví dụ giáo dục, kinh doanh, marketing, dịch vụ… không dùng ví dụ IT/PM.  
-2) Cheat sheet 1 trang cho Buổi 1.
-
----
-
-```markdown
 # Buổi 1 — Framing as Cognitive Control
 
 Problem Framing & Goal Structuring for AI-mediated Knowledge Work  
-(Tập trung cho người làm giáo dục, kinh doanh, marketing, dịch vụ, vận hành…)
+> Tập trung cho người làm giáo dục, kinh doanh, marketing, dịch vụ, vận hành…
 
 ---
 
@@ -645,7 +637,6 @@ Nếu bạn chưa thoải mái với bất kỳ câu nào ở trên, hãy:
 
 - quay lại assignment,
 - hoặc gửi lại 1 prompt cũ của bạn (trong thực tế), rồi áp dụng lại mọi thứ trong buổi này để “phẫu thuật” đến khi thấy rõ mình đã đổi.
-
 
 ---
 
