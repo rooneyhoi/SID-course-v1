@@ -368,6 +368,64 @@ Thay vào đó, **tách phase**; ví dụ:
 - Critique → phản biện và tối ưu quy trình đó.
 - Teach → biến quy trình thành tài liệu đào tạo nhân viên mới.
 
+Ví dụ tốt (đã tách phase, mỗi prompt 1 task chính) có thể viết lại như sau:
+
+```text
+[Phase 1 – Explain]
+Tôi đang xây chương trình chăm sóc khách hàng cho một công ty dịch vụ nhỏ (10 nhân viên CSKH tuyến đầu).
+
+Hãy GIẢI THÍCH giúp tôi, ở mức dễ hiểu:
+1) “Chăm sóc khách hàng tốt” thường được hiểu là gì trong bối cảnh doanh nghiệp dịch vụ?
+2) 5–7 tiêu chí quan trọng nhất để đánh giá một trải nghiệm CSKH là tốt.
+
+Trả lời ngắn gọn, có ví dụ đơn giản.
+```
+
+```text
+[Phase 2 – Compare]
+Dựa trên các tiêu chí chăm sóc khách hàng tốt ở trên, hãy SO SÁNH 3 mô hình CSKH sau:
+1) Chăm sóc chủ động (chủ động gọi/lên lịch chăm sóc)
+2) Chăm sóc phản ứng (chỉ xử lý khi khách yêu cầu hoặc phàn nàn)
+3) Chăm sóc theo “vòng đời khách hàng” (từng giai đoạn có kịch bản riêng)
+
+Yêu cầu:
+- Trình bày dưới dạng bảng so sánh, các dòng: ưu điểm, nhược điểm, phù hợp với loại doanh nghiệp nào.
+```
+
+```text
+[Phase 3 – Design]
+Hãy DESIGN một QUY TRÌNH CSKH 5–7 bước cho công ty dịch vụ nhỏ của tôi, dựa trên:
+- 10 nhân viên CSKH,
+- chủ yếu hỗ trợ qua điện thoại và Zalo,
+- khách hàng là cá nhân, không phải doanh nghiệp.
+
+Yêu cầu:
+- Mỗi bước nêu rõ: mục tiêu, ai phụ trách, đầu vào, đầu ra.
+```
+
+```text
+[Phase 4 – Critique]
+Hãy CRITIQUE quy trình CSKH 5–7 bước dưới đây của tôi: 
+[ DÁN QUY TRÌNH HIỆN TẠI / QUY TRÌNH AI VỪA ĐỀ XUẤT ]
+
+Yêu cầu:
+1) Chỉ ra ít nhất 5 điểm yếu hoặc rủi ro (ví dụ: bước bị thiếu, chồng chéo, không thực tế với 10 nhân viên).
+2) Đề xuất chỉnh sửa cụ thể cho từng điểm yếu đó.
+```
+
+```text
+[Phase 5 – Teach]
+Hãy biến quy trình CSKH 5–7 bước đã chỉnh sửa thành TÀI LIỆU ĐÀO TẠO cho nhân viên mới.
+
+Yêu cầu:
+1) Viết một bản tóm tắt dễ hiểu cho nhân viên tuyến đầu (không dùng jargon).
+2) Đề xuất cấu trúc 1 buổi training 2 giờ:
+   - mục tiêu,
+   - các phần chính,
+   - 1–2 hoạt động thực hành,
+   - cách kiểm tra nhanh cuối buổi.
+```
+
 ---
 
 ## 5. Framing Brief – sản phẩm cuối của Buổi 1
