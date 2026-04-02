@@ -200,16 +200,16 @@ Trả ra:
 
 Ví dụ các artifact:
 
-- concept note (ghi chú khái niệm),
-- comparison table (bảng so sánh),
-- framework 5–7 bước,
-- checklist,
-- decision tree,
-- workflow,
-- syllabus (đề cương khóa học),
-- rubric,
-- playbook (cẩm nang triển khai),
-- script (kịch bản cuộc gọi, buổi dạy, hội thảo…).
+- concept note (ghi chú khái niệm / bản ghi chú khái niệm)
+- comparison table (bảng so sánh)
+- 5–7-step framework (framework 5–7 bước / khung 5–7 bước)
+- checklist (bảng kiểm / danh sách kiểm tra)
+- decision tree (cây quyết định)
+- workflow (quy trình làm việc / luồng công việc)
+- syllabus (đề cương khóa học)
+- rubric (bảng tiêu chí đánh giá / rubric đánh giá)
+- playbook (cẩm nang triển khai / sổ tay hướng dẫn)
+- script (kịch bản cuộc gọi / kịch bản buổi dạy / kịch bản hội thảo)
 
 Sai lầm rất phổ biến:
 
@@ -249,13 +249,13 @@ Thấy khác biệt?
 Trước khi hỏi AI, tự hỏi:
 
 > “Output mình cần là:
-> - Bảng?
-> - Framework?
-> - Checklist?
-> - Syllabus?
-> - Rubric?
-> - Playbook?
-> - Kịch bản buổi dạy / cuộc gọi?”
+- table (bảng / bảng so sánh / bảng tổng hợp)
+- framework (framework / khung 5–7 bước / mô hình khung)
+- checklist (checklist / bảng kiểm / danh sách kiểm tra)
+- syllabus (syllabus / đề cương khóa học / đề cương nội dung)
+- rubric (rubric / bảng tiêu chí đánh giá / thang đánh giá)
+- playbook (playbook / cẩm nang triển khai / sổ tay hướng dẫn)
+- script (kịch bản buổi dạy / kịch bản cuộc gọi / kịch bản hội thảo)
 
 Nếu chưa trả lời được → **chưa xong Goal Framing**.
 
@@ -376,13 +376,13 @@ Thay vào đó, **tách phase**; ví dụ:
 
 Một đoạn **150–250 từ**, mô tả:
 
-- Topic,
-- Problem (bài toán),
-- Audience,
-- Context,
-- Scope (in/out),
-- Output sơ bộ,
-- Task type chính.
+- topic (chủ đề)
+- problem (bài toán / vấn đề cần giải quyết)
+- audience (đối tượng / người nhận / người dùng đầu ra)
+- context (bối cảnh / hoàn cảnh / môi trường áp dụng)
+- scope (phạm vi in-scope / out-of-scope)
+- draft output (output sơ bộ / dạng đầu ra dự kiến)
+- main task type (task type chính / loại nhiệm vụ chính: explain/compare/design/teach/critique…)
 
 Framing Brief **không phải prompt**; nó là mô tả bài toán để dùng:
 
