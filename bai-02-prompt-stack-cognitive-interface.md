@@ -161,7 +161,11 @@ Giải nghĩa:
   - “kém nếu chỉ liệt kê chung chung”,  
   - “tránh các buzzword mơ hồ”.
 
-### 3.2. So sánh prompt “ngây thơ” và prompt có RTC-COE
+---
+
+### 3.2. Ví dụ prompt “ngây thơ” vs prompt có RTC‑COE (2 domain song song)
+
+#### 3.2.1. Ví dụ A – Domain chuyên môn: AI literacy
 
 **Prompt ngây thơ:**
 
@@ -178,7 +182,7 @@ Hạn chế:
 - Output: không xác định artifact cụ thể.
 - Evaluation: không có chuẩn tốt/xấu.
 
-**Prompt theo RTC-COE (minh họa):**
+**Prompt theo RTC‑COE (minh họa):**
 
 ```text
 [Role] Đóng vai chuyên gia về AI literacy và giáo dục đại học.
@@ -209,6 +213,65 @@ Output tốt khi:
 - Mỗi năng lực có ít nhất một hành vi cụ thể.
 - Bảng có thể dùng làm xương sống cho rubric đánh giá sau này.
 ```
+
+---
+
+#### 3.2.2. Ví dụ B – Domain đời thường: quản lý thời gian cho nhân viên văn phòng
+
+**Prompt ngây thơ:**
+
+```text
+Hãy hướng dẫn thật chi tiết cách quản lý thời gian hiệu quả cho nhân viên văn phòng, 
+gồm các nguyên tắc, mô hình, ví dụ, công cụ, các sai lầm phổ biến và một kế hoạch 30 ngày cụ thể.
+```
+
+Hạn chế:
+
+- Role: không rõ (chỉ “hướng dẫn”).
+- Task: trộn:
+  - giải thích nguyên tắc,
+  - mô tả mô hình,
+  - cho ví dụ,
+  - gợi ý công cụ,
+  - chỉ ra sai lầm,
+  - làm kế hoạch 30 ngày.
+- Context: mơ hồ (nhân viên văn phòng thuộc ngành nào, hoàn cảnh ra sao?).
+- Constraints: không có, dễ dẫn đến output quá dài.
+- Output: không xác định artifact trung tâm.
+
+**Prompt theo RTC‑COE (minh họa):**
+
+```text
+[Role] Đóng vai chuyên gia huấn luyện về quản lý thời gian cho nhân viên văn phòng.
+
+[Task] Thiết kế một khung kỹ năng quản lý thời gian cốt lõi cho nhân viên văn phòng bận rộn, 
+dùng làm nền để xây dựng kế hoạch 30 ngày luyện tập.
+
+[Context]
+- Đối tượng: nhân viên văn phòng 25–35 tuổi, làm full-time, thường xuyên bị gián đoạn công việc.
+- Mục tiêu: cải thiện khả năng tập trung, giảm tình trạng trễ deadline, tạo thêm thời gian cho cuộc sống cá nhân.
+- Thời gian luyện tập: 30 ngày, mỗi ngày có thể dành 20–30 phút.
+
+[Constraints]
+- Chỉ tập trung vào kỹ năng và thói quen cá nhân, không đi sâu vào công cụ phức tạp.
+- Mỗi kỹ năng cần gắn với một ví dụ tình huống trong môi trường văn phòng.
+- Tổng số kỹ năng chính không vượt quá 7.
+
+[Output]
+- Một bảng khung kỹ năng với các cột:
+  (1) Kỹ năng
+  (2) Mô tả ngắn
+  (3) Tình huống ví dụ trong công việc
+  (4) Hành động nhỏ có thể luyện tập hàng ngày (5–15 phút)
+
+[Evaluation]
+Output tốt khi:
+- Mỗi kỹ năng có thể trở thành một "chủ đề tuần" trong lộ trình 30 ngày.
+- Tình huống minh họa gần với thực tế nhân viên văn phòng.
+- Hành động luyện tập rõ ràng, dễ thực hiện.
+```
+
+Hai ví dụ trên thể hiện: cùng một khung RTC‑COE có thể áp dụng cho domain chuyên môn (AI literacy) và domain đời thường (quản lý thời gian) mà không phụ thuộc vào nền tảng IT.
 
 ---
 
@@ -247,11 +310,6 @@ Tổng thể:
 - **RTC‑COE** = “stack vi mô” bên trong một prompt.
 - **Prompt Stack** = “stack vĩ mô” giữa các prompt, qua các phase.
 
-Cảm giác “tất cả đều là stack” là đúng, nhưng cần phân biệt:
-
-- Stack **thành phần** (RTC‑COE) trong 1 prompt.
-- Stack **prompt** (Prompt Stack) trong toàn bộ quy trình giải bài toán.
-
 ---
 
 ## 5. Prompt Stack – từ “1 lệnh” sang “chuỗi phase”
@@ -289,7 +347,7 @@ Prompt Stack tạo ra:
 
 ---
 
-## 6. Từ master prompt đến Prompt Stack (ví dụ refactor)
+## 6. Từ master prompt đến Prompt Stack (ví dụ refactor đời thường)
 
 ### 6.1. Master prompt ban đầu (quản lý thời gian)
 
@@ -321,7 +379,7 @@ Bài toán thực chất cần:
 
 ### 6.3. Refactor thành Prompt Stack
 
-Ví dụ một Prompt Stack (rút gọn):
+Một Prompt Stack đơn giản:
 
 1. Prompt 1: Clarify – làm rõ bài toán, đối tượng, phạm vi.
 2. Prompt 2: Structure – liệt kê các kỹ năng/thành phần liên quan quản lý thời gian.
@@ -329,15 +387,13 @@ Ví dụ một Prompt Stack (rút gọn):
 4. Prompt 4: Design – thiết kế lộ trình 30 ngày dựa trên khung kỹ năng.
 5. Prompt 5: Critique – tự phản biện lộ trình, đề xuất phiên bản nhanh/sâu.
 
-Cấu trúc chi tiết của Prompt 1–4 trong tài liệu sẽ áp dụng lại cách viết RTC‑COE tương tự phần AI literacy.
+Ở các phần sau, cấu trúc chi tiết của Prompt 1–4 sẽ áp dụng lại cách viết RTC‑COE tương tự phần AI literacy.
 
 ---
 
 ## 7. Thiết kế Prompt Stack cho domain thực tế
 
 ### 7.1. Bước nền tảng: cung cấp Framing Brief cho mô hình
-
-Bước này tạo “nền tảng bối cảnh” cho toàn bộ session làm việc:
 
 ```text
 Sắp gửi một Framing Brief mô tả chủ đề, bài toán, đối tượng, phạm vi và output mong muốn.
@@ -364,9 +420,6 @@ Bước này:
 ---
 
 ### 7.2. Prompt 1 – Clarify Prompt (task: làm rõ bài toán)
-
-**Mục tiêu:**  
-Làm rõ yêu cầu, đối tượng, phạm vi và giả định trước khi thiết kế bất kỳ khung hay lộ trình nào.
 
 ```text
 [Role] Đóng vai business analyst, chuyên làm rõ yêu cầu trước khi thiết kế giải pháp.
@@ -397,9 +450,6 @@ Output tốt khi:
 ---
 
 ### 7.3. Prompt 2 – Structure Prompt (task: extract/structure – bóc mảnh)
-
-**Mục tiêu:**  
-Từ Framing Brief (đã được làm rõ), bóc tách chủ đề thành các thành phần hoặc kỹ năng, tạo một “bản đồ nội dung” sơ bộ.
 
 ```text
 [Role] Đóng vai knowledge organizer, chuyên tổ chức và phân loại kiến thức.
@@ -437,9 +487,6 @@ Output tốt khi:
 
 ### 7.4. Prompt 3 – Refine Prompt (task: refine + design khung)
 
-**Mục tiêu:**  
-Dựa trên danh sách thành phần/thành tố ở Prompt 2, rút gọn và gom nhóm thành khung năng lực hoặc khung nội dung có thể triển khai thành chương trình.
-
 ```text
 [Role] Đóng vai program designer phụ trách thiết kế chương trình/khóa học cho [TOPIC].
 
@@ -459,7 +506,7 @@ Dựa trên danh sách thành phần/thành tố ở Prompt 2, rút gọn và go
 - Tối đa 7 năng lực/cụm nội dung.
 - Mỗi năng lực:
   - không trùng lặp về ý với năng lực khác,
-  - liên hệ trực tiếp đến tình huống thực tế (ví dụ: dạy học, làm việc văn phòng, ra quyết định, v.v.).
+  - liên hệ trực tiếp đến tình huống thực tế.
 - Không bổ sung nội dung hoàn toàn mới; chỉ được:
   - chọn lọc,
   - gộp nhóm,
@@ -482,9 +529,6 @@ Output tốt khi:
 ---
 
 ### 7.5. Prompt 4 – Critique Prompt (task: self-critique)
-
-**Mục tiêu:**  
-Giúp mô hình (và người thiết kế) tự phản biện khung đã tạo, chuẩn bị cho việc cải tiến và sử dụng ở các bối cảnh khác nhau.
 
 ```text
 [Role] Đóng vai reviewer khó tính trong domain [TOPIC].
@@ -652,16 +696,206 @@ Buổi 3 và Buổi 4 sẽ:
 
 ---
 
-## 11. Gợi ý Prompt Stack mẫu — AI literacy cho giảng viên đại học
+## 11. Prompt Stack mẫu A — Domain đời thường: quản lý thời gian cho nhân viên văn phòng
 
-### 11.1. Context (tóm tắt Framing Brief mẫu)
+### 11.1. Context (Framing Brief mẫu)
+
+- Topic: Quản lý thời gian cho nhân viên văn phòng bận rộn.
+- Problem: Thiết kế một lộ trình 30 ngày, thực tế, giúp cải thiện quản lý thời gian, giảm stress, tạo thêm thời gian cho cuộc sống cá nhân.
+- Audience: Nhân viên văn phòng 25–35 tuổi, làm full-time, hay bị gián đoạn công việc, ít thời gian rảnh.
+- Scope: Tập trung vào kỹ năng và thói quen cá nhân; không đi sâu vào công cụ phức tạp hoặc kỹ thuật quản lý dự án nâng cao.
+- Output ưu tiên:
+  - Khung kỹ năng quản lý thời gian cốt lõi,
+  - Kế hoạch 30 ngày (chia theo tuần/ngày), mỗi ngày có 1–2 hành động nhỏ.
+
+### 11.2. Prompt 1 — Làm rõ bài toán (time management)
+
+*Task type chính: explain + diagnose*
+
+```text
+[Role] Đóng vai business analyst trong lĩnh vực phát triển cá nhân cho người đi làm.
+
+[Task]
+1. Tóm tắt lại bài toán, đối tượng, phạm vi và output mong muốn trong Framing Brief quản lý thời gian.
+2. Liệt kê 5–7 giả định về nhân viên văn phòng trong bối cảnh này (thời gian, áp lực, môi trường làm việc…).
+3. Đề xuất 5 câu hỏi cần được trả lời thêm trước khi thiết kế khung kỹ năng và lộ trình 30 ngày.
+
+[Constraints]
+- Không thiết kế khung kỹ năng hay lộ trình ở bước này.
+- Sử dụng ngôn ngữ đơn giản, dễ hiểu với người đi làm không chuyên.
+
+[Output]
+- Đoạn tóm tắt.
+- Danh sách giả định.
+- Danh sách câu hỏi.
+
+[Evaluation]
+Output tốt khi:
+- Phản ánh đúng vấn đề “quản lý thời gian cho nhân viên văn phòng bận rộn”.
+- Nêu được các giả định và câu hỏi giúp làm rõ giới hạn thực tế (thời gian, năng lượng, cam kết…).
+```
+
+---
+
+### 11.3. Prompt 2 — Bóc khung kỹ năng quản lý thời gian sơ bộ
+
+*Task type chính: design (extract & structure)*
+
+```text
+[Role] Đóng vai "knowledge organizer" trong lĩnh vực quản lý thời gian cho người đi làm.
+
+[Task]
+Từ Framing Brief và phần làm rõ ở Prompt 1:
+- Liệt kê các kỹ năng hoặc thành phần quan trọng của quản lý thời gian đối với nhân viên văn phòng bận rộn.
+- Nhóm các kỹ năng này thành 3–5 nhóm lớn (ví dụ: tư duy, lập kế hoạch, thực thi, xử lý gián đoạn…).
+
+[Context]
+- Đối tượng: nhân viên văn phòng 25–35 tuổi, làm full-time.
+- Mục tiêu: giúp người học áp dụng trong đời sống công việc hàng ngày mà không cần thêm công cụ phức tạp.
+
+[Constraints]
+- Mỗi kỹ năng có mô tả ngắn gọn (1–2 câu).
+- Mỗi kỹ năng gắn với một ví dụ tình huống cụ thể trong môi trường văn phòng (họp, email, deadline, gián đoạn…).
+- Tổng số kỹ năng chính: không vượt quá 10–12.
+
+[Output]
+- Danh sách dạng:
+  - Nhóm A (ví dụ: Tư duy & nhận thức):
+    - Kỹ năng 1: mô tả, ví dụ
+    - Kỹ năng 2: mô tả, ví dụ
+  - Nhóm B (ví dụ: Lập kế hoạch & ưu tiên):
+    - ...
+
+[Evaluation]
+Output tốt khi:
+- Cho thấy bức tranh tương đối đầy đủ về những gì cần cho "quản lý thời gian" ở môi trường văn phòng.
+- Mỗi kỹ năng dễ hiểu, có ví dụ cụ thể, không quá trừu tượng.
+```
+
+---
+
+### 11.4. Prompt 3 — Rút gọn & tinh luyện thành khung kỹ năng cốt lõi
+
+*Task type chính: refine + design*
+
+```text
+[Role] Đóng vai program designer chuyên xây dựng chương trình kỹ năng cho nhân viên văn phòng.
+
+[Task]
+1. Từ danh sách kỹ năng ở Prompt 2, gộp và tinh chỉnh để tạo thành 5–7 kỹ năng quản lý thời gian cốt lõi.
+2. Với mỗi kỹ năng cốt lõi, bổ sung:
+   - tên ngắn gọn (2–4 từ),
+   - mô tả 1–2 câu,
+   - một ví dụ tình huống văn phòng,
+   - một hành động nhỏ có thể luyện tập trong 5–15 phút/ngày.
+
+[Context]
+- Khóa học/lộ trình kéo dài 30 ngày.
+- Mỗi kỹ năng cốt lõi có thể là “chủ đề của một tuần” hoặc trục chính cho nhiều ngày luyện tập.
+
+[Constraints]
+- Tối đa 7 kỹ năng cốt lõi.
+- Không thêm kỹ năng mới; chỉ gộp/tinh giản từ danh sách đã có.
+- Ngôn ngữ đời thường, dễ tiếp cận.
+
+[Output]
+- Bảng rút gọn:
+  1. Kỹ năng cốt lõi
+  2. Mô tả
+  3. Ví dụ tình huống
+  4. Hành động luyện tập hằng ngày (5–15 phút)
+
+[Evaluation]
+Output tốt khi:
+- Mỗi kỹ năng có thể trở thành một “chủ đề chính” cho 1 tuần trong lộ trình 30 ngày.
+- Hành động luyện tập đủ cụ thể để người bận rộn có thể áp dụng ngay.
+```
+
+---
+
+### 11.5. Prompt 4 — Thiết kế lộ trình 30 ngày
+
+*Task type chính: design + synthesize*
+
+```text
+[Role] Đóng vai "coach" xây dựng lộ trình phát triển thói quen cho người đi làm.
+
+[Task]
+Dựa trên bảng kỹ năng cốt lõi ở Prompt 3:
+- Thiết kế một lộ trình 30 ngày quản lý thời gian cho nhân viên văn phòng bận rộn.
+
+[Context]
+- Mỗi ngày người học dành được 20–30 phút.
+- Mức cam kết: trung bình, không yêu cầu thay đổi đột ngột, quá cực đoan.
+
+[Constraints]
+- Chia lộ trình theo tuần (4 tuần), mỗi tuần tập trung vào 1–2 kỹ năng cốt lõi.
+- Mỗi ngày:
+  - có 1–2 hành động cụ thể,
+  - không mô tả mơ hồ, tránh các câu kiểu “hãy cố gắng tập trung hơn”.
+- Tổng thời gian mỗi ngày không quá 30 phút.
+
+[Output]
+- Bảng/outline lộ trình 30 ngày:
+  - Tuần 1: [tên kỹ năng chính]
+    - Ngày 1: ...
+    - Ngày 2: ...
+    - ...
+  - Tuần 2: ...
+
+[Evaluation]
+Output tốt khi:
+- Lộ trình có vẻ khả thi cho người đi làm bận rộn.
+- Các hành động liên kết rõ với khung kỹ năng cốt lõi.
+- Có thể dùng ngay làm “kế hoạch tự luyện” mà không cần sửa quá nhiều.
+```
+
+---
+
+### 11.6. Prompt 5 — Tự phản biện lộ trình
+
+*Task type chính: critique*
+
+```text
+[Role] Đóng vai reviewer khó tính, có kinh nghiệm coaching người đi làm.
+
+[Task]
+Đánh giá và phản biện lộ trình 30 ngày đã tạo.
+
+[Output]
+1. Ba điểm mạnh nổi bật của lộ trình (về tính thực tế, tính động viên, tính dễ làm).
+2. Năm điểm yếu hoặc rủi ro:
+   - Ngày/tuần nào quá tải hoặc quá nhẹ.
+   - Thói quen nào khó duy trì với người rất bận.
+   - Chỗ nào dễ gây chán nản nếu không có hỗ trợ thêm.
+3. Hai phiên bản điều chỉnh:
+   - Phiên bản A: dành cho người rất ít thời gian (chỉ 10–15 phút/ngày).
+   - Phiên bản B: dành cho người có thể đầu tư nhiều hơn (40–60 phút/ngày).
+
+[Constraints]
+- Phân tích tập trung vào tính khả thi.
+- Không cần viết lại chi tiết toàn bộ 30 ngày, chỉ nêu rõ vùng cần điều chỉnh.
+
+[Evaluation]
+Output tốt khi:
+- Nêu cụ thể được vùng rủi ro của lộ trình.
+- Gợi ý hai hướng chỉnh sửa (A/B) có thể áp dụng ngay.
+```
+
+---
+
+## 12. Prompt Stack mẫu B — Domain chuyên môn: AI literacy cho giảng viên đại học
+
+(Phần này dành cho đối tượng quen với bối cảnh giáo dục/AI, giữ lại để tham chiếu như một ví dụ chuyên môn.)
+
+### 12.1. Context (tóm tắt Framing Brief mẫu)
 
 Chủ đề: AI literacy cho giảng viên đại học.  
 Bài toán: Thiết kế một khung năng lực AI literacy dành cho giảng viên đã sử dụng AI 1–2 năm (không viết code, chủ yếu dùng AI để soạn bài, chấm bài, thiết kế câu hỏi).  
 Mục tiêu: Dùng khung năng lực làm xương sống cho khóa học nội bộ 4 buổi và cho hệ thống đánh giá năng lực.  
 Phạm vi: Không đi vào training model hoặc hạ tầng kỹ thuật; tập trung vào khai thác AI an toàn, có đạo đức, hiệu quả trong dạy và học.
 
-### 11.2. Prompt 1 — Làm rõ bài toán
+### 12.2. Prompt 1 — Làm rõ bài toán (AI literacy)
 
 *Task type chính: explain + diagnose*
 
@@ -669,7 +903,7 @@ Phạm vi: Không đi vào training model hoặc hạ tầng kỹ thuật; tập
 [Role] Đóng vai business analyst trong môi trường giáo dục đại học.
 
 [Task]
-1. Tóm tắt lại bài toán, đối tượng, phạm vi và output từ Framing Brief này.
+1. Tóm tắt lại bài toán, đối tượng, phạm vi và output từ Framing Brief AI literacy.
 2. Liệt kê 5–7 giả định về giảng viên và bối cảnh dạy học với AI.
 3. Đề xuất 5 câu hỏi cần được trả lời thêm trước khi thiết kế khung năng lực.
 
@@ -686,7 +920,9 @@ Phạm vi: Không đi vào training model hoặc hạ tầng kỹ thuật; tập
 Output được xem là tốt nếu phản ánh chính xác bài toán và nêu được các câu hỏi làm rõ quan trọng.
 ```
 
-### 11.3. Prompt 2 — Bóc khung năng lực sơ bộ
+---
+
+### 12.3. Prompt 2 — Bóc khung năng lực sơ bộ (AI literacy)
 
 *Task type chính: design (extract & structure)*
 
@@ -724,7 +960,9 @@ Output tốt khi:
 - Hành vi quan sát được rõ ràng, gắn với thực hành của giảng viên.
 ```
 
-### 11.4. Prompt 3 — Rút gọn & tinh luyện khung năng lực
+---
+
+### 12.4. Prompt 3 — Rút gọn & tinh luyện khung năng lực (AI literacy)
 
 *Task type chính: refine + design*
 
@@ -757,7 +995,9 @@ Output tốt khi:
 - Mỗi năng lực mang ý nghĩa riêng, không trùng lặp với các năng lực còn lại.
 ```
 
-### 11.5. Prompt 4 — Tự phản biện khung năng lực
+---
+
+### 12.5. Prompt 4 — Tự phản biện khung năng lực (AI literacy)
 
 *Task type chính: critique*
 
@@ -786,5 +1026,4 @@ Output tốt khi:
 - Đề xuất hai phiên bản chỉnh sửa có thể triển khai trong thực tế.
 ```
 
-Ghi chú: Ví dụ này chỉ mang tính minh họa. Khi áp dụng cho domain riêng, toàn bộ nội dung cần được điều chỉnh theo Framing Brief tương ứng.
-
+Ghi chú: Hai Prompt Stack mẫu A (quản lý thời gian) và B (AI literacy) dùng cùng một logic RTC‑COE và Prompt Stack, chỉ khác domain. Nhóm học viên không IT hoặc không giáo dục có thể tập trung trước vào ví dụ quản lý thời gian, sau đó đọc thêm ví dụ AI literacy như một trường hợp chuyên sâu.
